@@ -1,5 +1,3 @@
-Respuetas Sección 1
-
 # 1. ¿Cuál es la diferencia entre un JOIN y un UNION en SQL? Proporcione un ejemplo de cada uno.
 
 * la diferencia es la siguiente el JOIN se utiliza para combinar información entre tablas basandose en una columna relacionada entre las mismas o campo llave, por lo que permite 
