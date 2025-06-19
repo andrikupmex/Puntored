@@ -24,6 +24,56 @@ LIMIT 5;
 
 # Escribe una consulta para calcular el ticket promedio de ventas por cliente en el último año.
 
+SELECT
+cliente_id,
+AVG(monto) AS Avg_ticket
+FROM ventas
+WHERE fecha >= DATE_SUB(CURRENT_DATE(), INTERVAL 1 YEAR)
+GROUP BY cliente_id
+ORDER BY cliente_id;
+
+# Escribe una consulta para obtener el nombre completo de los clientes y su monto total de ventas.
+
+SELECT
+CONCAT(C.nombre, ' ', C.apellido) AS Nombre_Completo,
+SUM(v.monto) AS Total_Ventas
+FROM clientes C
+JOIN ventas V ON C.id = V.cliente_id
+GROUP BY CONCAT(C.nombre, ' ', C.apellido)
+ORDER BY Total_Ventas DESC;
+
+# Escribe una consulta para obtener el ingreso promedio de ventas por mes.
+
+SELECT
+FORMAT_DATE('%Y-%m', fecha) AS Mes_Fecha,
+SUM(monto) AS Ingreso_Mensual
+FROM ventas
+GROUP BY FORMAT_DATE('%Y-%m', fecha);
+    
+# Escribe una consulta para calcular el ranking de clientes por ventas en el último año.
+
+WITH Ventas_Ultimo_YY AS 
+(SELECT
+cliente_id,
+SUM(monto) AS total_ventas
+FROM ventas
+WHERE fecha >= DATE_SUB(CURRENT_DATE(), INTERVAL 1 YEAR)
+GROUP BY cliente_id)
+
+SELECT
+V.cliente_id,
+CONCAT(C.nombre, ' ', C.apellido) AS Nombre_Apellido,
+V.total_ventas,
+RANK() OVER (ORDER BY V.total_ventas DESC) AS Ranking
+FROM Ventas_Ultimo_YY V
+JOIN clientes` C ON V.cliente_id = C.id
+ORDER BY 4;
+
+# Escribe una consulta para calcular el total de ventas por cliente y luego selecciona solo los clientes cuyo total de ventas es 
+superior al promedio general.
+
+
+
 
 
 
