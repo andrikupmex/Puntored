@@ -72,8 +72,19 @@ ORDER BY 4;
 # Escribe una consulta para calcular el total de ventas por cliente y luego selecciona solo los clientes cuyo total de ventas es 
 superior al promedio general.
 
+WITH Total_Ventas_Cliente AS 
+(SELECT
+cliente_id,
+SUM(monto) AS Total
+FROM ventas
+GROUP BY cliente_id)
 
-
+SELECT
+cliente_id,
+Total
+FROM Total_Ventas_Cliente
+WHERE Total > (SELECT AVG(Total) FROM Total_Ventas_Cliente)
+ORDER BY Total DESC;
 
 
 
