@@ -1,1 +1,25 @@
-Visualización de datos - Tableau
+# 1. ¿Cuál es la diferencia entre una medida y una dimensión en Tableau?
+
+* La diferencia se encuentra en el tipo de dato y como lo interpeta TABLEAU, las dimensiones son usadas para datos cualitativos, son datos 
+que se usan para segmentar y categorizar definir que estamos mostrando y las medidas son datos cuantitativos, numeros que permiten generar 
+y realizar calculos que cantidad hay de lo que estamos mostrando.
+
+# 2. ¿Qué tipo de gráfico es más adecuado para comparar porcentajes de una variable categórica?
+
+* En mi experencia va a depender del numero categorias, si son menos de 4 o 5 se podria usar un gráfico circular o de pastel como se conoce
+comunmente, en caso de ser mas lo mejor seria usar un gráfico de barras que permita comparar la longitud de las mismas para identificar cual
+tiene mayor o menor porcentaje en relación al resto, adicional que se puede ordenar de mayor a menor o viceversa dependiendo del requerimiento
+
+# 3. ¿Cómo se puede crear un filtro dinámico en Tableau para que el usuario pueda seleccionar un rango de fechas?
+
+* Se arrastra o carga el campo que contenga la fecha en un formato valido a la tarjeta se filtros, se configura para que el filtrado de la 
+inforamcion sea por rango de fechas, luego en la pildora se selecciona que sea visible el filtro.
+
+# 4. ¿Que es un archivo hyper en tableau, y en que caso de uso se puede aplicar?
+
+* El archivo HYPER es en palabrs coloquiles un extracto de datos, como una copia de una fuente que se guarda localmente en disco.
+Esto aplica para mejorar el rendimiento y velocidad de un Dashboard, permite trabajar sin conexión o cuando la conexión a la BDD es lenta o 
+con una alta latencia en red.
+
+
+
