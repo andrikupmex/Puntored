@@ -1,1 +1,47 @@
 Respuetas Sección 1
+
+# 1. ¿Cuál es la diferencia entre un JOIN y un UNION en SQL? Proporcione un ejemplo de cada uno.
+
+* la diferencia es la siguiente el JOIN se utiliza para combinar información entre tablas basandose en una columna relacionada entre las mismas o campo llave, por lo que permite 
+agregar o sumar información a un regisro con datos de oras tablas, el UNION sirve para la información o filas de dos o mas consultas en un solo bloque de datos, con la excepción 
+que deben contener el mismo numero de columnas y el tipo de dato debe ser el mismo, en terminos mas simples permite apilar verticalmente los resultados de las consultas.
+
+* Ejemplo JOIN
+SELECT
+A.Nombre,
+B.Apellido
+FROM Cliente A
+JOIN Datos B ON A.ID = B.DatosId;
+
+* Ejemplo UNION
+SELECT 
+Nombre_Cliente
+FROM Tienda_A
+UNION
+SELECT 
+Nombre_Cliente
+FROM Tienda_B
+
+# 2. Explique qué es una consulta CTE (Common Table Expression) y mencione un caso de uso.
+
+* Una consulta CTE permite organizar y simplificar las consultas, valga la redundancia, sirve para crear y nombrar pasos intermedios para evitar anidar consultas dentro de consultas 
+generando una tabla temporal, evitando consultas ilegibles o complejas de leer y entender.
+
+* Un caso de uso simple puede ser calcular el total de vetas por cliente y luego realizar un filtro de aquellos que superan el promedio de ventas de todos los clientes, usariamos la CTE
+para calcular el total de ventas por cliente.
+
+# 3. ¿Qué es la cláusula HAVING en SQL y en qué se diferencia de WHERE?
+
+* HAVING se utiliza para filtrar grupos de filas despues de haber realizado un agrupado como SUM, AVG o COUNT, el WHERE se ocupa para datos en filas individuales y el HAVING para 
+grupos.
+
+4. Dado el siguiente conjunto de datos en una tabla llamada ventas,escriba una consulta SQL para obtener el total de ventas por cliente, incluyendo sólo aquellos con
+un monto total superior a 250.
+
+SELECT 
+cliente_id,
+SUM(monto) AS Total
+FROM ventas 
+GROUP BY cliente_id
+HAVING SUM(monto) > 250;
+
