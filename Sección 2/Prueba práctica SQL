@@ -1,1 +1,30 @@
-Prueba práctica SQL
+# 1. Escriba una consulta SQL para obtener el promedio de salario por departamento, excluyendo
+empleados contratados después del 1 de enero de 2020.
+
+SELECT 
+departamento,
+AVG(salario) AS Avg_Salario
+FROM empleados
+WHERE fecha_contratacion <= '2020-01-01' --Se excluyen luego de la fecha, incluyendo los de la fecha misma
+GROUP BY departamento;
+
+# 2. Escribe una consulta para obtener los 5 clientes con mayor monto total de ventas en los últimos 6 meses.
+
+SELECT
+C.id AS cliente_id,
+C.nombre,
+C.apellido,
+SUM(V.monto) AS Ventas_6_meses
+FROM ventas V
+JOIN clientes C ON V.cliente_id = C.id
+WHERE V.fecha >= DATE_SUB(CURRENT_DATE(), INTERVAL 6 MONTH)
+GROUP BY C.id AS cliente_id, C.nombre, C.apellido
+ORDER BY Ventas_6_meses DESC
+LIMIT 5;
+
+# Escribe una consulta para calcular el ticket promedio de ventas por cliente en el último año.
+
+
+
+
+
