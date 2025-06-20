@@ -1,1 +1,5 @@
-Prueba
+Usando un dataset con ventas por ciudad (ciudad, fecha, monto_venta), cree un
+dashboard en Tableau que incluya:
+● Un gráfico de líneas mostrando la evolución de las ventas en el tiempo.
+● Un mapa geográfico con las ventas por ciudad.
+● Un filtro interactivo para seleccionar un rango de fechas.
